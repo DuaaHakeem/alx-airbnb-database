@@ -45,8 +45,8 @@ From **First Normal Form (1NF)** to **Third Normal Form (3NF)**, ensuring the da
 ### Final 3NF Schema Overview
 - **User(user_id, first_name, last_name, email, password_hash, phone_number, role_id, created_at)**  
 - **Role(role_id, role_name)**  
-- **Property(property_id, host_id, location_id, address_line, name, description, price_per_night, created_at, updated_at)**  
-- **Location(location_id, city, region, country, postal_code)**  
+- **Property(property_id, host_id, location_id, name, description, price_per_night, created_at, updated_at)**  
+- **Location(location_id, address_line, city, region, country, postal_code)**  
 - **Booking(booking_id, property_id, user_id, start_date, end_date, total_price, status, created_at)**  
 - **Payment(payment_id, booking_id, method_id, amount, payment_date)**  
 - **Payment_Method(method_id, method_name)**  
