@@ -3,13 +3,13 @@
 ## 1. Entities and Attributes
 
 ### User
-- **user_id** (Primary Key, UUID, Indexed)
-- first_name (VARCHAR,NOT NULL)
-- last_name (VARCHAR,NOT NULL)
-- email (VARCHAR, UNIQUE, NOT NULL)
-- password_hash (VARCHAR,NOT NULL)
-- phone_number (VARCHAR, optional)
-- role (ENUM: 'guest', 'host', 'admin')
+- **user_id** : Primary Key, UUID, Indexed
+- first_name : VARCHAR, NOT NULL
+- last_name : VARCHAR, NOT NULL
+- email : VARCHAR, UNIQUE, NOT NULL
+- password_hash : VARCHAR,NOT NULL
+- phone_number : VARCHAR, optional
+- role :ENUM: 'guest', 'host', 'admin'
 - created_at (TIMESTAMP, default: `CURRENT_TIMESTAMP`)
 
 ### Property
