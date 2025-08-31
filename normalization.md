@@ -3,7 +3,7 @@
 This document explains the normalization process applied to the **Airbnb database design**.  
 From **First Normal Form (1NF)** to **Third Normal Form (3NF)**, ensuring the database is clean, consistent, and free from anomalies.
 
----
+
 
 ## 1️⃣ First Normal Form (1NF)
 
@@ -15,7 +15,7 @@ From **First Normal Form (1NF)** to **Third Normal Form (3NF)**, ensuring the da
 
 ✅ After this adjustment, the database satisfies **1NF**.
 
----
+
 
 ## 2️⃣ Second Normal Form (2NF)
 
@@ -26,7 +26,7 @@ From **First Normal Form (1NF)** to **Third Normal Form (3NF)**, ensuring the da
 
 ✅ Current schema satisfies **2NF**.
 
----
+
 
 ## 3️⃣ Third Normal Form (3NF)
 
