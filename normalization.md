@@ -55,8 +55,6 @@ From **First Normal Form (1NF)** to **Third Normal Form (3NF)**, ensuring the da
 
 ✅ Now the schema is in **Third Normal Form**.
 
----
 
-- **3NF**: Removed transitive dependencies by introducing `Location`, `Payment_Method`, and optionally `Role`.
 
 The database is now clean, extensible, and optimized for consistency and scalability.
