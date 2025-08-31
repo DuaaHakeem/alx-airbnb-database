@@ -61,6 +61,7 @@ CREATE TABLE Booking (
 );
 
 CREATE INDEX idx_booking ON Booking(booking_id);
+CREATE INDEX idx_booking_property ON Booking(property_id);
 
 CREATE TABLE payment_method (
     method_id    UUID PRIMARY KEY NOT NULL,
@@ -78,6 +79,7 @@ CREATE TABLE Payment (
 );
 
 CREATE INDEX idx_payment ON Payment(payment_id);
+CREATE INDEX idx_payment_booking ON Payment(booking_id);
 
 
 CREATE TABLE Review (
