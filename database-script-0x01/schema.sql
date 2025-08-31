@@ -1,15 +1,11 @@
 
--- ==========================
--- ROLE TABLE
--- ==========================
+
 CREATE TABLE User_role (
     role_id      UUID PRIMARY KEY NOT NULL,
     role_name    VARCHAR(50) NOT NULL UNIQUE
 );
 
--- ==========================
--- USER TABLE
--- ==========================
+
 
 CREATE TABLE User (
     user_id         UUID PRIMARY KEY,
@@ -26,9 +22,6 @@ CREATE TABLE User (
 CREATE INDEX idx_user_email ON User(email);
 
 
--- ==========================
--- LOCATION TABLE
--- ==========================
 CREATE TABLE Property_location (
     location_id   UUID PRIMARY KEY NOT NULL,
     city          VARCHAR(100) NOT NULL,
@@ -38,11 +31,6 @@ CREATE TABLE Property_location (
 );
 
 
-
-
----------------------------------------------------
--- Properties Table
----------------------------------------------------
 CREATE TABLE Property (
     property_id     UUID PRIMARY KEY,
     host_id         UUID NOT NULL,
@@ -58,9 +46,6 @@ CREATE TABLE Property (
 
 
 
----------------------------------------------------
--- Bookings Table
----------------------------------------------------
 CREATE TABLE Booking (
     booking_id      UUID PRIMARY KEY,
     property_id     UUID NOT NULL,
@@ -77,23 +62,24 @@ CREATE TABLE Booking (
 
 CREATE INDEX idx_booking ON Booking(booking_id);
 
----------------------------------------------------
--- Payments Table
----------------------------------------------------
+CREATE TABLE payment_method (
+    method_id    UUID PRIMARY KEY NOT NULL,
+    method_name  VARCHAR(50) NOT NULL UNIQUE
+);
+
+
 CREATE TABLE Payment (
     payment_id      UUID PRIMARY KEY,
     booking_id      UUID NOT NULL,
     amount          DECIMAL(10,2) NOT NULL CHECK (amount >= 0),
     payment_date    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    payment_method  VARCHAR(20) NOT NULL CHECK (payment_method IN ('credit_card','paypal','stripe')),
+    method_id       UUID NOT NULL REFERENCES payment_method(method_id),
     FOREIGN KEY (booking_id) REFERENCES Booking(booking_id) ON DELETE CASCADE
 );
 
 CREATE INDEX idx_payment ON Payment(payment_id);
 
----------------------------------------------------
--- Reviews Table
----------------------------------------------------
+
 CREATE TABLE Review (
     review_id       UUID PRIMARY KEY,
     property_id     UUID NOT NULL,
@@ -107,9 +93,7 @@ CREATE TABLE Review (
 
 CREATE INDEX idx_review ON Review(review_id);
 
----------------------------------------------------
--- Messages Table
----------------------------------------------------
+
 CREATE TABLE Message (
     message_id      UUID PRIMARY KEY,
     sender_id       UUID NOT NULL,
@@ -121,5 +105,5 @@ CREATE TABLE Message (
     CONSTRAINT chk_message_not_self CHECK (sender_id <> recipient_id)
 );
 
-CREATE INDEX idx_message_sender ON Message(sender_id);
-CREATE INDEX idx_message_recipient ON Message(recipient_id);
+CREATE INDEX idx_message ON Message(message_id);
+
