@@ -82,6 +82,6 @@ Foreign key constraints on `sender_id` and `recipient_id`.
 
 - **Primary Keys** : Indexed automatically.
 - **Additional Indexes** :
-     -- `email` in the **User** table.
-     -- `property_id` in the **Property** and **Booking** tables.
-    -- `booking_id` in the **Booking** and **Payment** tables.
+     - `email` in the **User** table.
+     - `property_id` in the **Property** and **Booking** tables.
+     - `booking_id` in the **Booking** and **Payment** tables.
